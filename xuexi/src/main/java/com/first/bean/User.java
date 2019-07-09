@@ -1,6 +1,6 @@
 package com.first.bean;
 
-
+//第一次项目发布到git上
 import java.io.Serializable;
 
 import javax.persistence.Table;
