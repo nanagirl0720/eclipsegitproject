@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.first.mapper.UserMapper">
+
+	<resultMap id="BaseResultMap" type="com.first.bean.User" >
+	    <id column="id" property="id" jdbcType="INTEGER" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="age" property="age" jdbcType="INTEGER" />
+  	</resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, name, age
+  </sql>
+
+	<select id="selectAllUser" resultMap="BaseResultMap">
+		select id,name,age from user
+	</select>
+
+	<!-- 更新用户 -->
+	<update id="updateUserById" parameterType="user">
+		update user set name=#{name},age=#{age} where id=#{id}
+	</update>
+	
+	<!-- 添加用户  -->
+	<insert id="insertUser" parameterType="user">
+		insert into user(
+		<if test="name != null and name != '' ">name,</if>
+		<if test="age != null and age != '' ">age</if>
+		) values(
+		<if test="name != null and name != '' ">#{name},</if>
+		<if test="age != null and age != '' ">#{age}</if>
+		)
+	</insert>
+	
+	<!-- 根据id查询用户，用于更新用户前的查询操作 -->
+	<select id="selectById" resultType="user">
+		select id,name,age from user where id=#{value}
+	</select>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteUserById" parameterType="int">
+		delete from user where id=#{id}
+	</delete>
+</mapper>

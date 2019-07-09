@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>demoThymeleaf</title>
+</head>
+<body>
+
+	<hr>
+	<a href="http://www.baidu.com" >百度一下，你就知道</a>
+	<br>
+	<a th:href="@{http://www.baidu.com}" >百度一下，你就知道</a>
+	<br>
+	<a th:href="@{/aaa}">相对路径：相对于当前项目的根</a>
+	<br>
+	<a th:href="@{~/project/resources}">相对路径：相对于服务器的根</a>	
+	<br>
+	<a th:href="@{/aaa(id=1,name='张三')}">页面传参</a>
+	
+	<br>
+	
+	<form action="">
+			<table border="1">
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>age</th>
+				</tr>
+				<tr th:each="u:${list}">
+					<td th:text="${u.id}"></td>
+					<td th:text="${u.name}"></td>
+					<td th:text="${u.age}"></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+	</form>
+	
+</body>
+</html>

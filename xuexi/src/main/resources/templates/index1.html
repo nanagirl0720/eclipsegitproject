@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>demoThymeleaf</title>
+</head>
+<body>
+
+	<span th:text="hello"></span>
+	<hr>
+	<span th:text="${msg}"></span>
+	<hr>
+	<input th:value="nihao"/>
+	<hr>
+	<span th:text="${#strings.contains(msg,'HT')}"></span>
+	
+	<hr>
+	<span th:text="${#strings.isEmpty(msg)}"></span>
+	
+	<hr>
+	<span th:text="${#strings.length(msg)}"></span>
+	
+	<hr>
+	<span th:text="${#dates.format(key)}"></span>
+	
+	<hr>
+	<span th:text="${#dates.format(key,'yyyy-MM-dd')}"></span>
+	
+	<hr>
+	<span th:if=${sex}=='男'>性别：男</span>
+	<span th:if=${sex}=='女'>性别：女</span>
+	
+	<div th:switch="${id}">
+		<span th:case='1'>id:1</span>
+		<span th:case='2'>id:2</span>
+		<span th:case='3'>id:3</span>
+	</div>
+	
+	<hr>
+	<a >百度一下，你就知道</a>
+	
+		
+</body>
+</html>
